@@ -1,7 +1,7 @@
 /* String Utilities */
 
-import { caps, allCaps } from "./lib/stringUtils.js";
+import { caps, allCaps, reverseString, levenshtein } from "./lib/stringUtils.js";
 
-console.log(allCaps("mohit bahanri"))
+console.log(levenshtein("kitten","sitting"));
 
-export { caps,allCaps };
+export { caps, allCaps, reverseString };
