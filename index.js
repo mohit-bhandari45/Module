@@ -1,7 +1,7 @@
 /* String Utilities */
 
-import { caps, allCaps, reverseString, levenshtein } from "./lib/stringUtils.js";
+import { caps, allCaps, reverseString, levenshtein, isAnagram,compressString } from "./lib/stringUtils.js";
 
-console.log(levenshtein("kitten","sitting"));
+console.log(compressString("AAAABBBCCDAA"));
 
-export { caps, allCaps, reverseString };
+export { caps, allCaps, reverseString, levenshtein, isAnagram,compressString };
