@@ -1,0 +1,37 @@
+name: Publish to npm
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout Code
+            - name: Checkout Code
+              uses: actions/checkout@v2
+
+            # Set up Nodejs
+            - name: Set Up Nodejs
+              uses: actions/setup-node@v3
+              with:
+                node-version: "14"
+            
+            # Install Dependencies
+            - name: Install Dependencies
+              run: npm install
+
+            # Run tests
+            - name: Run tests
+              run: npm run test
+
+            # Publish too npm 
+            - name: Publish to npm
+              run: | 
+                npm version patch -m "Upgrade to %s"
+                npm publish
+              env: 
+                NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}  
