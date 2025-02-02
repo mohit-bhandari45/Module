@@ -1,7 +1,15 @@
 /* String Utilities */
+import {
+    capsFirst, capsEach, toggleCase, senCase, titleCase,
+    reverseString,
+    hammingDistance, levenshtein,
+    isAnagram, compressString
+} from "./lib/stringUtils.js";
 
-import { caps, allCaps, reverseString, levenshtein, isAnagram,compressString } from "./lib/stringUtils.js";
 
-console.log(compressString("AAAABBBCCDAA"));
-
-export { caps, allCaps, reverseString, levenshtein, isAnagram,compressString };
+export {
+    capsFirst, capsEach, toggleCase, senCase, titleCase,
+    reverseString,
+    hammingDistance, levenshtein,
+    isAnagram, compressString
+};
