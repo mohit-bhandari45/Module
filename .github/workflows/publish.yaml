@@ -30,6 +30,11 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Commit changes (if any)
+        run: |
+          git add .
+          git diff --cached --quiet || git commit -m "chore: update version"
+
       - name: Publish to npm
         run: |
           npm version patch -m "Upgrade to %s"
