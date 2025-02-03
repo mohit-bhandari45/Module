@@ -6,15 +6,11 @@ import {
     isAnagram, compressString
 } from "./lib/StringUtils/Caps.js";
 
-import { reverse, reverseEach, reverseSen, reverseLetters } from "./lib/StringUtils/Reverse.js";
-
-console.log(reverse("mohit"));
-console.log(reverseEach("mohit is goat"));
-console.log(reverseSen("mohit is goat"));
+import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs } from "./lib/StringUtils/Reverse.js";
 
 export {
     capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters,
+    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs,
     reverseString,
     hammingDistance, levenshtein,
     isAnagram, compressString

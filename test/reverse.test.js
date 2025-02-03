@@ -1,4 +1,4 @@
-import { reverse, reverseEach, reverseLetters, reverseSen } from "../index.js";
+import { reverse, reverseEach, reverseLetters, reverseSen, reverseWordsIntactPuncs } from "../index.js";
 import { expect } from "chai";
 
 describe("Reverse whole string test suite", () => {
@@ -182,3 +182,56 @@ describe("Reverse Letters Test Suite", () => {
         expect(reverseLetters("a,b$c 123")).to.equal("c,b$a 123");
     });
 });
+
+describe('ReverseWordsIntactPuncs Test suites', function() {
+    it('should reverse words and preserve punctuation', function() {
+        const result = reverseWordsIntactPuncs("Hello, world! How are you?");
+        expect(result).to.equal("you, are! How world Hello?");
+    });
+
+    it('should handle single word sentence', function() {
+        const result = reverseWordsIntactPuncs("Hello!");
+        expect(result).to.equal("Hello!");
+    });
+
+    it('should preserve multiple spaces between words', function() {
+        const result = reverseWordsIntactPuncs("Hello   world!   How   are   you?");
+        expect(result).to.equal("you   are!   How   world   Hello?");
+    });
+
+    it('should reverse words when there is no punctuation', function() {
+        const result = reverseWordsIntactPuncs("The quick brown fox");
+        expect(result).to.equal("fox brown quick The");
+    });
+
+    it('should reverse words and preserve punctuation at the end', function() {
+        const result = reverseWordsIntactPuncs("Good morning, John.");
+        expect(result).to.equal("John morning, Good.");
+    });
+
+    it('should handle sentence with multiple punctuation marks', function() {
+        const result = reverseWordsIntactPuncs("This is a test, right? Really!");
+        expect(result).to.equal("Really right test a, is? This!");
+    });
+
+    it('should return an empty string for empty input', function() {
+        const result = reverseWordsIntactPuncs("");
+        expect(result).to.equal("");
+    });
+
+    it('should return the same value if there are no alphabetic words', function() {
+        const result = reverseWordsIntactPuncs("!@#$%^&*()");
+        expect(result).to.equal("!@#$%^&*()");
+    });
+
+    it('should handle long sentences', function() {
+        const result = reverseWordsIntactPuncs("The quick brown fox jumps over the lazy dog!");
+        expect(result).to.equal("dog lazy the over jumps fox brown quick The!");
+    });
+
+    it('should handle multiple punctuation marks between words', function() {
+        const result = reverseWordsIntactPuncs("Let's test... this, and see!");
+        expect(result).to.equal("see and... this, test Let's!");
+    });
+});
+
