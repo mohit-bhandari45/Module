@@ -1,4 +1,4 @@
-import { reverse, reverseEach, reverseLetters, reverseSen, reverseWordsIntactPuncs } from "../index.js";
+import { reverse, reverseEach, reverseLetters, reverseSen, reverseWordsIntactPuncs, reverseVowels } from "../index.js";
 import { expect } from "chai";
 
 describe("Reverse whole string test suite", () => {
@@ -229,9 +229,59 @@ describe('ReverseWordsIntactPuncs Test suites', function() {
         expect(result).to.equal("dog lazy the over jumps fox brown quick The!");
     });
 
-    it('should handle multiple punctuation marks between words', function() {
+    it('should handle multiple punctuation marks between words', ()=> {
         const result = reverseWordsIntactPuncs("Let's test... this, and see!");
         expect(result).to.equal("see and... this, test Let's!");
     });
 });
+
+describe("reverseVowels function", () => {
+    it("should reverse vowels in a simple word", () => {
+        expect(reverseVowels("hello")).to.equal("holle");
+    });
+
+    it("should reverse vowels in a sentence", () => {
+        expect(reverseVowels("Reverse Vowels")).to.equal("Revorse Vewels");
+    });
+
+    it("should handle words with no vowels", () => {
+        expect(reverseVowels("rhythm")).to.equal("rhythm");
+    });
+
+    it("should return an empty string when input is empty", () => {
+        expect(reverseVowels("")).to.equal("");
+    });
+
+    it("should handle uppercase and lowercase vowels correctly", () => {
+        expect(reverseVowels("HELLO")).to.equal("HOLLE");
+    });
+
+    it("should handle a single vowel", () => {
+        expect(reverseVowels("a")).to.equal("a");
+    });
+
+    it("should handle multiple spaces correctly", () => {
+        expect(reverseVowels("a e i o u")).to.equal("u o i e a");
+    });
+
+    it("should handle specail characters correctly", () => {
+        expect(reverseVowels("ab#fioffes%%%%    ")).to.equal("eb#foiffas%%%%    ");
+    });
+
+    it("should ignore non-string input and return empty string", () => {
+        expect(reverseVowels(12345)).to.equal("");
+        expect(reverseVowels(null)).to.equal("");
+        expect(reverseVowels(undefined)).to.equal("");
+        expect(reverseVowels({})).to.equal("");
+    });
+
+    it("should trim input if flag is true", () => {
+        expect(reverseVowels("  hello  ", true)).to.equal("holle");
+    });
+
+    it("should not trim input if flag is false", () => {
+        expect(reverseVowels("  hello  ", false)).to.equal("  holle  ");
+    });
+});
+
 

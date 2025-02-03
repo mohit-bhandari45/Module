@@ -6,11 +6,13 @@ import {
     isAnagram, compressString
 } from "./lib/StringUtils/Caps.js";
 
-import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs } from "./lib/StringUtils/Reverse.js";
+import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons,mirrorSen, shuffleWords } from "./lib/StringUtils/Reverse.js";
+
+console.log(shuffleWords("Hello My name"));
 
 export {
     capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs,
+    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords,
     reverseString,
     hammingDistance, levenshtein,
     isAnagram, compressString
