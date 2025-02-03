@@ -30,14 +30,16 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: Commit changes (if any)
+      - name: Increment Version and Publish
         run: |
-          git add .
-          git diff --cached --quiet || git commit -m "chore: update version"
-
-      - name: Publish to npm
-        run: |
-          npm version patch -m "Upgrade to %s"
+          # Check if the current version has already been published
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          if npm view utility-surge@$CURRENT_VERSION version > /dev/null 2>&1; then
+            echo "Version $CURRENT_VERSION already exists. Incrementing version..."
+            npm version patch -m "Upgrade to %s"
+          else
+            echo "Version $CURRENT_VERSION is new. Proceeding to publish..."
+          fi
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
