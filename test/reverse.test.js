@@ -1,4 +1,4 @@
-import { reverse, reverseEach, reverseLetters, reverseSen, reverseWordsIntactPuncs, reverseVowels } from "../index.js";
+import { reverse, reverseEach, reverseLetters, reverseSen, reverseWordsIntactPuncs, reverseVowels, countChars } from "../index.js";
 import { expect } from "chai";
 
 describe("Reverse whole string test suite", () => {
@@ -100,7 +100,7 @@ describe('Reverse Sentence Test Cases', () => {
     });
 
     it('should reverse the words with the whole sentence when each arg is passed', () => {
-        expect(reverseSen("Hello World",false,true)).to.equal("dlroW olleH");
+        expect(reverseSen("Hello World", false, true)).to.equal("dlroW olleH");
     });
 
     it("should return the same sentence if there is only one word", () => {
@@ -183,53 +183,53 @@ describe("Reverse Letters Test Suite", () => {
     });
 });
 
-describe('ReverseWordsIntactPuncs Test suites', function() {
-    it('should reverse words and preserve punctuation', function() {
+describe('ReverseWordsIntactPuncs Test suites', ()=> {
+    it('should reverse words and preserve punctuation', ()=> {
         const result = reverseWordsIntactPuncs("Hello, world! How are you?");
         expect(result).to.equal("you, are! How world Hello?");
     });
 
-    it('should handle single word sentence', function() {
+    it('should handle single word sentence', ()=> {
         const result = reverseWordsIntactPuncs("Hello!");
         expect(result).to.equal("Hello!");
     });
 
-    it('should preserve multiple spaces between words', function() {
+    it('should preserve multiple spaces between words', ()=> {
         const result = reverseWordsIntactPuncs("Hello   world!   How   are   you?");
         expect(result).to.equal("you   are!   How   world   Hello?");
     });
 
-    it('should reverse words when there is no punctuation', function() {
+    it('should reverse words when there is no punctuation', ()=> {
         const result = reverseWordsIntactPuncs("The quick brown fox");
         expect(result).to.equal("fox brown quick The");
     });
 
-    it('should reverse words and preserve punctuation at the end', function() {
+    it('should reverse words and preserve punctuation at the end', ()=> {
         const result = reverseWordsIntactPuncs("Good morning, John.");
         expect(result).to.equal("John morning, Good.");
     });
 
-    it('should handle sentence with multiple punctuation marks', function() {
+    it('should handle sentence with multiple punctuation marks', ()=> {
         const result = reverseWordsIntactPuncs("This is a test, right? Really!");
         expect(result).to.equal("Really right test a, is? This!");
     });
 
-    it('should return an empty string for empty input', function() {
+    it('should return an empty string for empty input', ()=> {
         const result = reverseWordsIntactPuncs("");
         expect(result).to.equal("");
     });
 
-    it('should return the same value if there are no alphabetic words', function() {
+    it('should return the same value if there are no alphabetic words', ()=> {
         const result = reverseWordsIntactPuncs("!@#$%^&*()");
         expect(result).to.equal("!@#$%^&*()");
     });
 
-    it('should handle long sentences', function() {
+    it('should handle long sentences', ()=> {
         const result = reverseWordsIntactPuncs("The quick brown fox jumps over the lazy dog!");
         expect(result).to.equal("dog lazy the over jumps fox brown quick The!");
     });
 
-    it('should handle multiple punctuation marks between words', ()=> {
+    it('should handle multiple punctuation marks between words', () => {
         const result = reverseWordsIntactPuncs("Let's test... this, and see!");
         expect(result).to.equal("see and... this, test Let's!");
     });
@@ -284,4 +284,41 @@ describe("reverseVowels function", () => {
     });
 });
 
+describe('CountChars test suites',  ()=> {
+    it('should return 0 if the string is empty', ()=> {
+        const result = countChars("", "a");
+        expect(result).to.equal(0);
+    });
 
+    it('should return 0 if the character is not found', ()=> {
+        const result = countChars("hello world", "z");
+        expect(result).to.equal(0);
+    });
+
+    it('should return the correct count for a single character', ()=> {
+        const result = countChars("hello world", "l");
+        expect(result).to.equal(3);
+    });
+
+    it('should return the correct count for multiple occurrences', ()=> {
+        const result = countChars("aaaaaa", "a");
+        expect(result).to.equal(6);
+    });
+
+    it('should handle case sensitivity correctly', ()=> {
+        const result = countChars("Hello World", "h");
+        expect(result).to.equal(0);
+        const result2 = countChars("Hello World", "H");
+        expect(result2).to.equal(1);
+    });
+
+    it('should return an empty string if the input is not a valid string', ()=> {
+        const result = countChars(123, "1");
+        expect(result).to.equal(0);
+    });
+
+    it('should return 0 if the input string is not a string or is empty', ()=> {
+        const result = countChars(undefined, "a");
+        expect(result).to.equal(0);
+    });
+});

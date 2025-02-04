@@ -6,13 +6,13 @@ import {
     isAnagram, compressString
 } from "./lib/StringUtils/Caps.js";
 
-import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons,mirrorSen, shuffleWords } from "./lib/StringUtils/Reverse.js";
+import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons,mirrorSen, shuffleWords, countChars } from "./lib/StringUtils/Reverse.js";
 
-console.log(shuffleWords("Hello My name"));
+console.log(countChars("Hello this is the goat of the football, messi",'t'));
 
 export {
     capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords,
+    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords, countChars,
     reverseString,
     hammingDistance, levenshtein,
     isAnagram, compressString
