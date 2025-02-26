@@ -6,14 +6,19 @@ import {
     isAnagram, compressString
 } from "./lib/StringUtils/Caps.js";
 
-import { reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons,mirrorSen, shuffleWords, countChars } from "./lib/StringUtils/Reverse.js";
+import {
+    reverse, reverseEach, reverseSen, reverseLetters,
+    reverseWordsIntactPuncs, reverseVowels, reverseCons, reverseInParen,
+    mirrorSen, shuffleWords, countChars, reverseCase, removeDups
+} from "./lib/StringUtils/Reverse.js";
 
-console.log(countChars("Hello this is the goat of the football, messi",'t'));
+import { Ascii,ENCODING_FORMAT } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
 export {
     capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords, countChars,
+    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords, countChars, reverseCase, removeDups, reverseInParen,
     reverseString,
     hammingDistance, levenshtein,
-    isAnagram, compressString
+    isAnagram, compressString,
+    Ascii, ENCODING_FORMAT
 };
