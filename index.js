@@ -1,21 +1,25 @@
 /* String Utilities */
 import {
-    capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverseString,
-    hammingDistance, levenshtein,
-    isAnagram, compressString
+    capsEach,
+    capsFirst,
+    senCase, titleCase,
+    toggleCase
 } from "./lib/StringUtils/Caps.js";
 
-import { reverse, reverseEach, reverseSen, reverseLetters } from "./lib/StringUtils/Reverse.js";
+import {
+    countChars,
+    mirrorSen, removeDups,
+    reverse, reverseCase, reverseCons, reverseEach, reverseInParen, reverseLetters, reverseSen, reverseVowels, reverseWordsIntactPuncs,
+    shuffleWords
+} from "./lib/StringUtils/Reverse.js";
 
-console.log(reverse("mohit"));
-console.log(reverseEach("mohit is goat"));
-console.log(reverseSen("mohit is goat"));
+import { Ascii, ENCODING_FORMAT } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
 export {
-    capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters,
-    reverseString,
-    hammingDistance, levenshtein,
-    isAnagram, compressString
+    Ascii, capsEach, capsFirst, countChars,
+    ENCODING_FORMAT, mirrorSen, removeDups,
+    reverse, reverseCase, reverseCons,
+    reverseEach, reverseInParen, reverseLetters,
+    reverseSen, reverseVowels, reverseWordsIntactPuncs,
+    senCase, shuffleWords, titleCase, toggleCase
 };
