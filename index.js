@@ -1,24 +1,25 @@
 /* String Utilities */
 import {
-    capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverseString,
-    hammingDistance, levenshtein,
-    isAnagram, compressString
+    capsEach,
+    capsFirst,
+    senCase, titleCase,
+    toggleCase
 } from "./lib/StringUtils/Caps.js";
 
 import {
-    reverse, reverseEach, reverseSen, reverseLetters,
-    reverseWordsIntactPuncs, reverseVowels, reverseCons, reverseInParen,
-    mirrorSen, shuffleWords, countChars, reverseCase, removeDups
+    countChars,
+    mirrorSen, removeDups,
+    reverse, reverseCase, reverseCons, reverseEach, reverseInParen, reverseLetters, reverseSen, reverseVowels, reverseWordsIntactPuncs,
+    shuffleWords
 } from "./lib/StringUtils/Reverse.js";
 
-import { Ascii,ENCODING_FORMAT } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
+import { Ascii, ENCODING_FORMAT } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
 export {
-    capsFirst, capsEach, toggleCase, senCase, titleCase,
-    reverse, reverseEach, reverseSen, reverseLetters, reverseWordsIntactPuncs, reverseVowels, reverseCons, mirrorSen, shuffleWords, countChars, reverseCase, removeDups, reverseInParen,
-    reverseString,
-    hammingDistance, levenshtein,
-    isAnagram, compressString,
-    Ascii, ENCODING_FORMAT
+    Ascii, capsEach, capsFirst, countChars,
+    ENCODING_FORMAT, mirrorSen, removeDups,
+    reverse, reverseCase, reverseCons,
+    reverseEach, reverseInParen, reverseLetters,
+    reverseSen, reverseVowels, reverseWordsIntactPuncs,
+    senCase, shuffleWords, titleCase, toggleCase
 };
