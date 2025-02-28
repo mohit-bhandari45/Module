@@ -15,12 +15,6 @@ import {
 
 import { Ascii, ENCODING_FORMAT, ISO } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
-const i = new ISO();
-const encoded = i.encode("Hello World");
-console.log("Encoded Buffer:", encoded);
-const decoded = i.decode(encoded);
-console.log("Decoded Text:", decoded);
-
 export {
     capsEach, capsFirst, countChars,
     mirrorSen, removeDups,
