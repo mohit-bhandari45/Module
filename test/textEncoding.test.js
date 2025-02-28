@@ -1,9 +1,9 @@
 import { expect } from "chai";
-import { Ascii, ENCODING_FORMAT } from "../index.js";
+import { Ascii, ENCODING_FORMAT, ISO } from "../index.js";
 
 describe("Ascii Encoding", () => {
     const as = new Ascii();
-    
+
     describe("encode", () => {
         it("should encode text to binary", () => {
             expect(as.encode("Hello", ENCODING_FORMAT.BINARY)).to.equal("01001000 01100101 01101100 01101100 01101111");
@@ -63,3 +63,51 @@ describe("Ascii Encoding", () => {
         });
     })
 })
+
+describe("ISO Encoding & Decoding", () => {
+    const iso = new ISO();
+
+    describe("Encoding", () => {
+        it("should encode a string into an ISO-8859-1 buffer", () => {
+            const text = "Héllo Wörld!";
+            const encoded = iso.encode(text);
+            expect(Buffer.isBuffer(encoded)).to.be.true;
+            expect(encoded.toString("latin1")).to.equal(text);
+        });
+
+        it("should encode an empty string to an empty buffer", () => {
+            const encoded = iso.encode("");
+            expect(Buffer.isBuffer(encoded)).to.be.true;
+            expect(encoded.length).to.equal(0);
+        });
+
+        it("should encode special characters correctly", () => {
+            const text = "Çüéâäàåéèù"; // Special Latin-1 characters
+            const encoded = iso.encode(text);
+            expect(Buffer.isBuffer(encoded)).to.be.true;
+            expect(encoded.toString("latin1")).to.equal(text);
+        });
+    });
+
+    describe("Decoding", () => {
+        it("should decode an ISO-8859-1 buffer back to a string", () => {
+            const text = "Héllo Wörld!";
+            const encoded = iso.encode(text);
+            const decoded = iso.decode(encoded);
+            expect(decoded).to.equal(text);
+        });
+
+        it("should decode an empty buffer to an empty string", () => {
+            const encoded = Buffer.from("", "latin1");
+            const decoded = iso.decode(encoded);
+            expect(decoded).to.equal("");
+        });
+
+        it("should decode special characters correctly", () => {
+            const text = "Çüéâäàåéèù";
+            const encoded = iso.encode(text);
+            const decoded = iso.decode(encoded);
+            expect(decoded).to.equal(text);
+        });
+    });
+});

@@ -13,5 +13,8 @@
   "devDependencies": {
     "chai": "^5.1.2",
     "mocha": "^11.0.1"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
   }
 }
