@@ -13,7 +13,7 @@ import {
     shuffleWords
 } from "./lib/StringUtils/Reverse.js";
 
-import { Ascii, ENCODING_FORMAT, ISO } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
+import { Ascii, ENCODING_FORMAT, ISO, UTF } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
 export {
     capsEach, capsFirst, countChars,
@@ -22,5 +22,5 @@ export {
     reverseEach, reverseInParen, reverseLetters,
     reverseSen, reverseVowels, reverseWordsIntactPuncs,
     senCase, shuffleWords, titleCase, toggleCase,
-    Ascii, ENCODING_FORMAT, ISO
+    Ascii, ENCODING_FORMAT, ISO, UTF
 };
