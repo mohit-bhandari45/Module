@@ -13,13 +13,14 @@ import {
     shuffleWords
 } from "./lib/StringUtils/Reverse.js";
 
-import { Ascii, ENCODING_FORMAT } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
+import { Ascii, ENCODING_FORMAT, ISO, UTF } from "./lib/StringUtils/EncodeDecode/TextEncoding.js";
 
 export {
-    Ascii, capsEach, capsFirst, countChars,
-    ENCODING_FORMAT, mirrorSen, removeDups,
+    capsEach, capsFirst, countChars,
+    mirrorSen, removeDups,
     reverse, reverseCase, reverseCons,
     reverseEach, reverseInParen, reverseLetters,
     reverseSen, reverseVowels, reverseWordsIntactPuncs,
-    senCase, shuffleWords, titleCase, toggleCase
+    senCase, shuffleWords, titleCase, toggleCase,
+    Ascii, ENCODING_FORMAT, ISO, UTF
 };
